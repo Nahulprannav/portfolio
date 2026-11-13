@@ -51,6 +51,27 @@ if (heroArt && !prefersReducedMotion && window.matchMedia("(pointer: fine)").mat
   });
 }
 
+if (!prefersReducedMotion && window.matchMedia("(pointer: fine)").matches) {
+  document.querySelectorAll("[data-tilt]").forEach((card) => {
+    card.addEventListener("pointermove", (event) => {
+      const bounds = card.getBoundingClientRect();
+      const x = (event.clientX - bounds.left) / bounds.width;
+      const y = (event.clientY - bounds.top) / bounds.height;
+      card.style.setProperty("--tilt-x", `${(x - 0.5) * 9}deg`);
+      card.style.setProperty("--tilt-y", `${(0.5 - y) * 7}deg`);
+      card.style.setProperty("--glow-x", `${x * 100}%`);
+      card.style.setProperty("--glow-y", `${y * 100}%`);
+    });
+
+    card.addEventListener("pointerleave", () => {
+      card.style.removeProperty("--tilt-x");
+      card.style.removeProperty("--tilt-y");
+      card.style.removeProperty("--glow-x");
+      card.style.removeProperty("--glow-y");
+    });
+  });
+}
+
 const revealElements = document.querySelectorAll(
   ".section-heading, .project-card, .about-heading, .about-copy, .experience-item, .toolkit-item, .contact-content",
 );
