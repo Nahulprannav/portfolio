@@ -28,5 +28,5 @@ Build one project at a time after the portfolio is published. Add its source, te
 
 - 2026-11-13: Portfolio scaffold and initial content created. Project apps remain roadmap items.
 - 2026-11-13: Target deployment provider selected: Vercel.
-- 2026-11-13: Deployment is awaiting Vercel CLI authentication; no CLI or deployment token is configured in this environment.
+- 2026-11-13: Vercel accepted the portfolio folder upload, but deployment is paused at email identity verification. No live URL is available yet.
 - 2026-11-13: Added cyan, coral, violet, and pink accents, floating 3D forms, and interactive project-card parallax.
